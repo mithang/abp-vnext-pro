@@ -58,14 +58,8 @@ function LoginScreen({ startLoading, stopLoading, setToken, fetchAppConfig }: Lo
     startLoading({ key: 'login' });
     login({ username, password })
       .then((data) => {
-        // Decode JWT token to get expiration time
-        const tokenPayload = JSON.parse(atob(data.token.split('.')[1]));
-        const expireTime = tokenPayload.exp * 1000; // Convert to milliseconds
-        
-        setToken({
-          ...data,
-          expire_time: expireTime,
-        });
+        // Set token without decoding - let TokenUtils handle JWT validation
+        setToken(data);
       })
       .then(
         () =>
