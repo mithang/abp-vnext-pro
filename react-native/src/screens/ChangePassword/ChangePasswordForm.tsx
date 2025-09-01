@@ -30,8 +30,8 @@ interface ChangePasswordFormProps {
 }
 
 const ValidationSchema = Yup.object().shape({
-  currentPassword: Yup.string().required('AbpAccount::ThisFieldIsRequired.'),
-  newPassword: Yup.string().required('AbpAccount::ThisFieldIsRequired.'),
+  currentPassword: Yup.string().required('AbpAccount:ThisFieldIsRequired.'),
+  newPassword: Yup.string().required('AbpAccount:ThisFieldIsRequired.'),
 });
 
 function ChangePasswordForm({ submit, cancel }: ChangePasswordFormProps) {
@@ -64,7 +64,7 @@ function ChangePasswordForm({ submit, cancel }: ChangePasswordFormProps) {
         <FormControl isRequired my="2">
           <Stack mx="4">
             <FormControl.Label>
-              {i18n.t('AbpIdentity::DisplayName:CurrentPassword')}
+              {i18n.t('AbpIdentity:DisplayName:CurrentPassword')}
             </FormControl.Label>
             <Input
               ref={currentPasswordRef}
@@ -94,7 +94,7 @@ function ChangePasswordForm({ submit, cancel }: ChangePasswordFormProps) {
         <FormControl isRequired my="2">
           <Stack mx="4">
             <FormControl.Label>
-              {i18n.t('AbpIdentity::DisplayName:NewPassword')}
+              {i18n.t('AbpIdentity:DisplayName:NewPassword')}
             </FormControl.Label>
             <Input
               ref={newPasswordRef}

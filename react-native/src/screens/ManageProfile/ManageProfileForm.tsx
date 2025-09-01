@@ -29,10 +29,10 @@ interface ManageProfileFormProps {
 }
 
 const ValidationSchema = Yup.object().shape({
-  userName: Yup.string().required('AbpAccount::ThisFieldIsRequired.'),
+  userName: Yup.string().required('AbpAccount:ThisFieldIsRequired.'),
   email: Yup.string()
-    .required('AbpAccount::ThisFieldIsRequired.')
-    .email('AbpAccount::ThisFieldIsNotAValidEmailAddress.'),
+    .required('AbpAccount:ThisFieldIsRequired.')
+    .email('AbpAccount:ThisFieldIsNotAValidEmailAddress.'),
 });
 
 function ManageProfileForm({ editingUser = {} as User, submit, cancel }: ManageProfileFormProps) {
@@ -75,7 +75,7 @@ function ManageProfileForm({ editingUser = {} as User, submit, cancel }: ManageP
           <FormControl isRequired my="2">
             <Stack mx="4">
               <FormControl.Label>
-                {i18n.t('AbpIdentity::UserName')}
+                {i18n.t('AbpIdentity:UserName')}
               </FormControl.Label>
               <Input
                 ref={usernameRef}
@@ -92,7 +92,7 @@ function ManageProfileForm({ editingUser = {} as User, submit, cancel }: ManageP
           <FormControl my="2">
             <Stack mx="4">
               <FormControl.Label>
-                {i18n.t('AbpIdentity::DisplayName:Name')}
+                {i18n.t('AbpIdentity:DisplayName:Name')}
               </FormControl.Label>
               <Input
                 ref={nameRef}
@@ -108,7 +108,7 @@ function ManageProfileForm({ editingUser = {} as User, submit, cancel }: ManageP
           <FormControl my="2">
             <Stack mx="4">
               <FormControl.Label>
-                {i18n.t('AbpIdentity::DisplayName:Surname')}
+                {i18n.t('AbpIdentity:DisplayName:Surname')}
               </FormControl.Label>
               <Input
                 ref={surnameRef}
@@ -124,7 +124,7 @@ function ManageProfileForm({ editingUser = {} as User, submit, cancel }: ManageP
           <FormControl my="2">
             <Stack mx="4">
               <FormControl.Label>
-                {i18n.t('AbpIdentity::PhoneNumber')}
+                {i18n.t('AbpIdentity:PhoneNumber')}
               </FormControl.Label>
               <Input
                 ref={phoneNumberRef}
@@ -140,7 +140,7 @@ function ManageProfileForm({ editingUser = {} as User, submit, cancel }: ManageP
           <FormControl isRequired my="2">
             <Stack mx="4">
               <FormControl.Label>
-                {i18n.t('AbpIdentity::EmailAddress')}
+                {i18n.t('AbpIdentity:EmailAddress')}
               </FormControl.Label>
               <Input
                 ref={emailRef}

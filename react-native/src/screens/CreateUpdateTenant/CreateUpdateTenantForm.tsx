@@ -34,7 +34,7 @@ interface CreateUpdateTenantFormProps {
 }
 
 const validations = {
-  name: Yup.string().required('AbpAccount::ThisFieldIsRequired.'),
+  name: Yup.string().required('AbpAccount:ThisFieldIsRequired.'),
 };
 
 function CreateUpdateTenantForm({ editingTenant, submit, remove }: CreateUpdateTenantFormProps) {
@@ -47,12 +47,12 @@ function CreateUpdateTenantForm({ editingTenant, submit, remove }: CreateUpdateT
 
   const adminEmailAddressValidation = Yup.lazy(() =>
     Yup.string()
-      .required('AbpAccount::ThisFieldIsRequired.')
-      .email('AbpAccount::ThisFieldIsNotAValidEmailAddress.'),
+      .required('AbpAccount:ThisFieldIsRequired.')
+      .email('AbpAccount:ThisFieldIsNotAValidEmailAddress.'),
   );
 
   const adminPasswordValidation = Yup.lazy(() =>
-    Yup.string().required('AbpAccount::ThisFieldIsRequired.'),
+    Yup.string().required('AbpAccount:ThisFieldIsRequired.'),
   );
 
   const onSubmit = (values: CreateUpdateTenantFormValues) => {
@@ -85,7 +85,7 @@ function CreateUpdateTenantForm({ editingTenant, submit, remove }: CreateUpdateT
       <Box w={{ base: '100%' }} px="3">
         <FormControl isRequired my="2">
           <Stack mx="4">
-            <FormControl.Label>{i18n.t('AbpTenantManagement::TenantName')}</FormControl.Label>
+            <FormControl.Label>{i18n.t('AbpTenantManagement:TenantName')}</FormControl.Label>
             <Input
               ref={tenantNameRef}
               onChangeText={formik.handleChange('name')}
@@ -103,7 +103,7 @@ function CreateUpdateTenantForm({ editingTenant, submit, remove }: CreateUpdateT
             <FormControl isRequired my="2">
               <Stack mx="4">
                 <FormControl.Label>
-                  {i18n.t('AbpTenantManagement::DisplayName:AdminEmailAddress')}
+                  {i18n.t('AbpTenantManagement:DisplayName:AdminEmailAddress')}
                 </FormControl.Label>
                 <Input
                   ref={adminEmailRef}
@@ -121,7 +121,7 @@ function CreateUpdateTenantForm({ editingTenant, submit, remove }: CreateUpdateT
             <FormControl isRequired my="2">
               <Stack mx="4">
                 <FormControl.Label>
-                  {i18n.t('AbpTenantManagement::DisplayName:AdminPassword')}
+                  {i18n.t('AbpTenantManagement:DisplayName:AdminPassword')}
                 </FormControl.Label>
                 <Input
                   ref={adminPasswordRef}
@@ -150,7 +150,7 @@ function CreateUpdateTenantForm({ editingTenant, submit, remove }: CreateUpdateT
       <FormButtons
         submit={formik.handleSubmit}
         remove={remove}
-        removeMessage={i18n.t('AbpTenantManagement::TenantDeletionConfirmationMessage', {
+        removeMessage={i18n.t('AbpTenantManagement:TenantDeletionConfirmationMessage', {
           0: editingTenant?.name,
         })}
         isSubmitDisabled={!formik.isValid}

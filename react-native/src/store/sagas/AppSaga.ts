@@ -42,7 +42,7 @@ function* logout({ payload: { client_id, token, refresh_token } }: PayloadAction
     yield call(Logout, refreshData);
   }
 
-  yield put(PersistentStorageActions.setToken({}));
+  yield put(PersistentStorageActions.clearAll());
   yield put(AppActions.fetchAppConfigAsync());
 }
 

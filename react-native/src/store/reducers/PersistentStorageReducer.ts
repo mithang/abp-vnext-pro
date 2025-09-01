@@ -18,5 +18,10 @@ export default createReducer(initialState, builder =>
     })
     .addCase(PersistentStorageActions.setTenant, (state, action) => {
       state.tenant = action.payload;
+    })
+    .addCase(PersistentStorageActions.clearAll, (state) => {
+      state.token = {};
+      state.language = null;
+      state.tenant = {};
     }),
 );

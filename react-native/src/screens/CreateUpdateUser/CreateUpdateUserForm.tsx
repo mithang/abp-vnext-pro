@@ -48,10 +48,10 @@ interface CreateUpdateUserFormProps {
 }
 
 const validations = {
-  userName: Yup.string().required('AbpAccount::ThisFieldIsRequired.'),
+  userName: Yup.string().required('AbpAccount:ThisFieldIsRequired.'),
   email: Yup.string()
-    .email('AbpAccount::ThisFieldIsNotAValidEmailAddress.')
-    .required('AbpAccount::ThisFieldIsRequired.'),
+    .email('AbpAccount:ThisFieldIsNotAValidEmailAddress.')
+    .required('AbpAccount:ThisFieldIsRequired.'),
 };
 
 let roleNames: string[] = [];
@@ -85,7 +85,7 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
     if (editingUser?.id) {
       return Yup.string();
     }
-    return Yup.string().required('AbpAccount::ThisFieldIsRequired.');
+    return Yup.string().required('AbpAccount:ThisFieldIsRequired.');
   });
 
   const formik = useFormik<UserFormData>({

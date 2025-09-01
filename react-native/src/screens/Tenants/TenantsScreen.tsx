@@ -35,7 +35,7 @@ function TenantsScreen({ navigation }: TenantsScreenProps) {
               py="2"
             >
               <HStack space={1}>
-                <Text color="coolGray.500">{t('AbpTenantManagement::TenantName')}:</Text>
+                <Text color="coolGray.500">{t('AbpTenantManagement:TenantName')}:</Text>
                 <Text color="coolGray.800" bold>
                   {item.name}
                 </Text>

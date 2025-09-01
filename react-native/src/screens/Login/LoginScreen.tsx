@@ -42,8 +42,8 @@ interface LoginFormValues {
 }
 
 const ValidationSchema = object().shape({
-  username: string().required('AbpAccount::ThisFieldIsRequired.'),
-  password: string().required('AbpAccount::ThisFieldIsRequired.'),
+  username: string().required('AbpAccount:ThisFieldIsRequired.'),
+  password: string().required('AbpAccount:ThisFieldIsRequired.'),
 });
 
 function LoginScreen({ startLoading, stopLoading, setToken, fetchAppConfig }: LoginScreenProps) {
@@ -120,7 +120,7 @@ function LoginScreen({ startLoading, stopLoading, setToken, fetchAppConfig }: Lo
               {!showTenantSelection && (
                 <VStack space={4}>
                   <EnterpriseInput
-                    label={i18n.t('AbpAccount::UserNameOrEmailAddress')}
+                    label={i18n.t('AbpAccount:UserNameOrEmailAddress')}
                     value={formik.values.username}
                     onChangeText={formik.handleChange('username')}
                     isRequired
@@ -134,7 +134,7 @@ function LoginScreen({ startLoading, stopLoading, setToken, fetchAppConfig }: Lo
                   />
                   
                   <EnterpriseInput
-                    label={i18n.t('AbpAccount::Password')}
+                    label={i18n.t('AbpAccount:Password')}
                     value={formik.values.password}
                     onChangeText={formik.handleChange('password')}
                     type="password"
@@ -149,7 +149,7 @@ function LoginScreen({ startLoading, stopLoading, setToken, fetchAppConfig }: Lo
                   
                   <EnterpriseFormActions
                     onSubmit={() => formik.handleSubmit()}
-                    submitText={i18n.t('AbpAccount::Login')}
+                    submitText={i18n.t('AbpAccount:Login')}
                     isSubmitting={false}
                   />
                 </VStack>

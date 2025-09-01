@@ -46,7 +46,7 @@ export const Logout = (
 
   return api({
     method: 'POST',
-    url: '/connect/revocat',
+    url: '/connect/revocation',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: _data,
     baseURL: oAuthConfig.issuer,

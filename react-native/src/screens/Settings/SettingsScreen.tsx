@@ -105,7 +105,7 @@ function SettingsScreen({
               alignItems: 'center',
               width: '100%',
             }}>
-            <Text ml="2">{i18n.t('AbpUi::ChangePassword')}</Text>
+            <Text ml="2">{i18n.t('AbpUi:ChangePassword')}</Text>
 
             <List.Icon as={Ionicons} name="arrow-forward" size="5" />
           </View>
@@ -114,7 +114,7 @@ function SettingsScreen({
         <List.Item style={{ backgroundColor: '#fff' }}>
           <FormControl my="2">
             <Stack mx="2">
-              <FormControl.Label>{i18n.t('AbpUi::Language')}</FormControl.Label>
+              <FormControl.Label>{i18n.t('AbpUi:Language')}</FormControl.Label>
               <Select
                 onValueChange={setLanguageAsync}
                 selectedValue={language.cultureName}>
