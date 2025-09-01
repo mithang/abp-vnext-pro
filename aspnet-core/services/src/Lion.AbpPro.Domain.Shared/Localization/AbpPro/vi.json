@@ -44,6 +44,7 @@
     "AbpIdentity:Edit": "Chỉnh sửa",
     "AbpIdentity:NewUser": "Người dùng mới",
     "AbpSettingManagement:Settings": "Cài đặt",
+    "Theme:Settings": "Cài đặt giao diện",
     "AbpTenantManagement:Tenants": "Tenant",
     "AbpTenantManagement:Edit": "Chỉnh sửa",
     "AbpTenantManagement:NewTenant": "Tenant mới",
@@ -53,6 +54,14 @@
     "AbpUiMultiTenancy:Switch": "Chuyển đổi",
     "AbpUiMultiTenancy:Name": "Tên",
     "AbpUiMultiTenancy:SwitchTenantHint": "Để trống để chuyển về host.",
-    "AbpUiMultiTenancy:GivenTenantIsNotAvailable": "Tenant '{0}' không khả dụng."
+    "AbpUiMultiTenancy:GivenTenantIsNotAvailable": "Tenant '{0}' không khả dụng.",
+    "Theme:PrimaryColor": "Màu chủ đạo",
+    "Theme:Mode": "Chế độ giao diện",
+    "Theme:Light": "Sáng",
+    "Theme:Dark": "Tối",
+    "Theme:Preview": "Xem trước",
+    "Theme:ExampleTitle": "Tiêu đề mẫu",
+    "Theme:ExampleText": "Đây là văn bản mẫu để hiển thị hiệu ứng giao diện hiện tại.",
+    "Theme:ExampleButton": "Nút mẫu"
   }
 }

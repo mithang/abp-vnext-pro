@@ -9,6 +9,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { getEnvVars } from './Environment';
 import Loading from './src/components/Loading/Loading';
 import { LocalizationContext } from './src/contexts/LocalizationContext';
+import { ThemeProvider } from './src/contexts/ThemeContext';
 import { initAPIInterceptor } from './src/interceptors/APIInterceptor';
 import AuthNavigator from './src/navigators/AuthNavigator';
 import DrawerNavigator from './src/navigators/DrawerNavigator';
@@ -20,6 +21,7 @@ import { createTokenSelector } from './src/store/selectors/PersistentStorageSele
 import { RootStackParamList } from './src/types';
 import { connectToRedux } from './src/utils/ReduxConnect';
 import { isTokenValid } from './src/utils/TokenUtils';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -63,14 +65,18 @@ export default function App() {
     <NavigationContainer>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <NativeBaseProvider>
-            {isReady ? (
-              <LocalizationContext.Provider value={localizationContextValue}>
-                <ConnectedAppContainer />
-              </LocalizationContext.Provider>
-            ) : null}
-            <Loading />
-          </NativeBaseProvider>
+          <ThemeProvider>
+            <NativeBaseProvider>
+              <SafeAreaProvider>
+                {isReady ? (
+                  <LocalizationContext.Provider value={localizationContextValue}>
+                    <ConnectedAppContainer />
+                  </LocalizationContext.Provider>
+                ) : null}
+                <Loading />
+              </SafeAreaProvider>
+            </NativeBaseProvider>
+          </ThemeProvider>
         </PersistGate>
       </Provider>
     </NavigationContainer>

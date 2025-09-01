@@ -21,6 +21,14 @@
     "AbpUi:ChangePassword": "Change Password",
     "AbpAccount:MyAccount": "My Account",
     "AbpAccount:Cancel": "Cancel",
-    "AbpAccount:Save": "Save"
+    "AbpAccount:Save": "Save",
+    "Theme:PrimaryColor": "Primary Colour",
+    "Theme:Mode": "Theme Mode",
+    "Theme:Light": "Light",
+    "Theme:Dark": "Dark",
+    "Theme:Preview": "Preview",
+    "Theme:ExampleTitle": "Example Title",
+    "Theme:ExampleText": "This is example text to show the current theme appearance.",
+    "Theme:ExampleButton": "Example Button"
   }
 }

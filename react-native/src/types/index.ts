@@ -169,12 +169,14 @@ export type MainStackParamList = {
   CreateUpdateTenant: { tenantId?: string };
   ChangePassword: undefined;
   ManageProfile: undefined;
+  ThemeSettings: undefined;
 };
 
 export type DrawerParamList = {
   HomeStack: undefined;
   TenantsStack: undefined;
   UsersStack: undefined;
+  ThemeStack: undefined;
   SettingsStack: undefined;
 };
 

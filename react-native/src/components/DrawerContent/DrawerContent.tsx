@@ -39,6 +39,7 @@ const screens: Record<string, Screen> = {
     iconName: 'business',
     requiredPolicy: 'AbpTenantManagement.Tenants',
   },
+  ThemeStack: { label: 'Theme:Settings', iconName: 'palette' },
   SettingsStack: { label: 'AbpSettingManagement:Settings', iconName: 'settings' },
 };
 
