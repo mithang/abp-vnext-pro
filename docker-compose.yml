@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: abp-pro-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: f616b8803ac7a9a0
+      MYSQL_DATABASE: LionAbpProDemo9
+      MYSQL_USER: abpuser
+      MYSQL_PASSWORD: f616b8803ac7a9a0
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - abp-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: abp-pro-redis
+    restart: always
+    command: redis-server --requirepass 1q2w3E*
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - abp-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: abp-pro-rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: 1q2w3E*
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - abp-network
+
+volumes:
+  mysql_data:
+  redis_data:
+  rabbitmq_data:
+
+networks:
+  abp-network:
+    driver: bridge

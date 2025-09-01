@@ -26,13 +26,17 @@ namespace Lion.AbpPro.DbMigrator
                 .ConfigureLogging((context, logging) => logging.ClearProviders())
                 .ConfigureAppConfiguration
                 (
-                    otpions =>
+                    options =>
                     {
+                        options.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                        
                         var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                        var appSettingFileName = "appsettings.json";
                         if (!environment.IsNullOrWhiteSpace())
-                            appSettingFileName = $"appsettings.{environment}.json";
-                        otpions.AddJsonFile(appSettingFileName, optional: true);
+                        {
+                            options.AddJsonFile($"appsettings.{environment}.json", optional: true, reloadOnChange: true);
+                        }
+                        
+                        options.AddEnvironmentVariables();
                     }
                 )
                 .ConfigureServices((hostContext, services) =>
