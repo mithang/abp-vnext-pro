@@ -34,7 +34,7 @@ export default function DrawerNavigator() {
         name="HomeStack"
         component={HomeStackNavigator}
         options={({ navigation }) => ({
-          title: t('::Menu:Home'),
+          title: t('Menu:Home'),
           headerLeft: () => <HamburgerIcon navigation={navigation} />,
         })}
       />

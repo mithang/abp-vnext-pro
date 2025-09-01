@@ -136,7 +136,7 @@ function SettingsScreen({
           onPress={() => {
             logout();
           }}>
-          {i18n.t('AbpAccount::Logout')}
+          {i18n.t('Logout')}
         </Button>
       </List>
     </View>

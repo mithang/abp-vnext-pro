@@ -27,6 +27,7 @@
     "Enum:TestType:Delete:1":"Delete",
     "Feature:TestEnable": "TestEnable",
     "Feature:TestString": "TestString",
-    "Feature:TestGroup": "TestGroup"
+    "Feature:TestGroup": "TestGroup",
+    "Logout": "Logout"
   }
 }

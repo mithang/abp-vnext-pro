@@ -22,10 +22,24 @@ export const getApplicationConfiguration = (): Promise<ApplicationConfiguration>
         });
       });
 
+      // Flatten the localization values structure
+      const flattenedTranslations: Record<string, string> = {};
+      Object.keys(config.localization.values).forEach((resourceKey) => {
+        const resource = config.localization.values[resourceKey];
+        if (typeof resource === 'object') {
+          Object.keys(resource).forEach((key) => {
+            flattenedTranslations[key] = resource[key];
+          });
+        }
+      });
+
       i18n.translations[cultureName] = {
-        ...config.localization.values,
+        ...flattenedTranslations,
         ...(i18n.translations[cultureName] || {}),
       };
+
+      // Debug log to check loaded translations
+      console.log('Loaded translations for', cultureName, ':', Object.keys(flattenedTranslations));
 
       return config;
     });

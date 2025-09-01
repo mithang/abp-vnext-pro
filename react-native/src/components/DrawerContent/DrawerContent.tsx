@@ -28,7 +28,7 @@ interface DrawerContentProps {
 }
 
 const screens: Record<string, Screen> = {
-  HomeStack: { label: '::Menu:Home', iconName: 'dashboard' },
+  HomeStack: { label: 'Menu:Home', iconName: 'dashboard' },
   UsersStack: {
     label: 'AbpIdentity::Users',
     iconName: 'people',

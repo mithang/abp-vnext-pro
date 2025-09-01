@@ -111,10 +111,10 @@ const HomeScreen = () => {
         {/* Header Section */}
         <VStack space={2}>
           <Heading size="xl" color="gray.800">
-            {i18n.t('::Welcome')}
+            {i18n.t('Welcome')}
           </Heading>
           <Text color="gray.600" fontSize="md">
-            {i18n.t('::LongWelcomeMessage')}
+            {i18n.t('LongWelcomeMessage')}
           </Text>
         </VStack>
 
