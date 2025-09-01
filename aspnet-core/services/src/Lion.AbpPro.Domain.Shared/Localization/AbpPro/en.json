@@ -64,6 +64,10 @@
     "AbpIdentity:EmailAddress": "Email Address",
     "AbpIdentity:DisplayName:CurrentPassword": "Current Password",
     "AbpIdentity:DisplayName:NewPassword": "New Password",
+    "AbpIdentity:Users": "Users",
+    "AbpIdentity:Edit": "Edit",
+    "AbpIdentity:NewUser": "New User",
+    "AbpSettingManagement:Settings": "Settings",
     "AbpTenantManagement:Tenants": "Tenants",
     "AbpTenantManagement:Edit": "Edit",
     "AbpTenantManagement:NewTenant": "New Tenant",
@@ -74,5 +78,6 @@
     "AbpUiMultiTenancy:Name": "Name",
     "AbpUiMultiTenancy:SwitchTenantHint": "Leave empty to switch to host.",
     "AbpUiMultiTenancy:GivenTenantIsNotAvailable": "Tenant '{0}' is not available."
+
   }
 }

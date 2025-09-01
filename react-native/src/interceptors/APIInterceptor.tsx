@@ -73,7 +73,7 @@ export function initAPIInterceptor(store: Store): void {
 
 function showError({ error = {}, status }: ShowErrorParams): void {
   let message = '';
-  let title = i18n.t('AbpAccount::DefaultErrorMessage');
+  let title = i18n.t('AbpAccount:DefaultErrorMessage');
 
   if (typeof error === 'string') {
     message = error;
@@ -85,20 +85,20 @@ function showError({ error = {}, status }: ShowErrorParams): void {
   } else {
     switch (status) {
       case 401:
-        title = i18n.t('AbpAccount::DefaultErrorMessage401');
-        message = i18n.t('AbpAccount::DefaultErrorMessage401Detail');
+        title = i18n.t('AbpAccount:DefaultErrorMessage401');
+        message = i18n.t('AbpAccount:DefaultErrorMessage401Detail');
         break;
       case 403:
-        title = i18n.t('AbpAccount::DefaultErrorMessage403');
-        message = i18n.t('AbpAccount::DefaultErrorMessage403Detail');
+        title = i18n.t('AbpAccount:DefaultErrorMessage403');
+        message = i18n.t('AbpAccount:DefaultErrorMessage403Detail');
         break;
       case 404:
-        title = i18n.t('AbpAccount::DefaultErrorMessage404');
-        message = i18n.t('AbpAccount::DefaultErrorMessage404Detail');
+        title = i18n.t('AbpAccount:DefaultErrorMessage404');
+        message = i18n.t('AbpAccount:DefaultErrorMessage404Detail');
         break;
       case 500:
-        title = i18n.t('AbpAccount::500Message');
-        message = i18n.t('AbpAccount::InternalServerErrorMessage');
+        title = i18n.t('AbpAccount:500Message');
+        message = i18n.t('AbpAccount:InternalServerErrorMessage');
         break;
       default:
         break;

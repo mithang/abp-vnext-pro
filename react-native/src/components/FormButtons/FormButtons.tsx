@@ -26,14 +26,14 @@ function FormButtons({
 }: FormButtonsProps) {
   const confirmation = () => {
     Alert.alert(
-      i18n.t('AbpUi::AreYouSure'),
+      i18n.t('AbpUi:AreYouSure'),
       removeMessage,
       [
         {
-          text: i18n.t('AbpUi::Cancel'),
+          text: i18n.t('AbpUi:Cancel'),
           style: 'cancel',
         },
-        { text: i18n.t('AbpUi::Yes'), onPress: () => remove?.() },
+        { text: i18n.t('AbpUi:Yes'), onPress: () => remove?.() },
       ],
       { cancelable: true },
     );
@@ -47,7 +47,7 @@ function FormButtons({
           style={{ flex: 1, borderRadius: 0 }}
           onPress={() => confirmation()}
           disabled={isRemoveDisabled}>
-          <Text>{i18n.t('AbpIdentity::Delete')}</Text>
+          <Text>{i18n.t('AbpIdentity:Delete')}</Text>
         </Button>
       ) : null}
       {isShowSubmit ? (
@@ -55,7 +55,7 @@ function FormButtons({
           style={{ flex: 1, borderRadius: 0 }}
           onPress={submit}
           disabled={isSubmitDisabled}>
-          <Text>{i18n.t('AbpIdentity::Save')}</Text>
+          <Text>{i18n.t('AbpIdentity:Save')}</Text>
         </Button>
       ) : null}
     </View>

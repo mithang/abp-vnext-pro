@@ -84,7 +84,7 @@ interface AppContainerProps {
 
 function AppContainer({token, setToken}: AppContainerProps) {
   const isValid = useMemo(() => isTokenValid(token), [token]);
-
+  
   useEffect(() => {
     if (!isValid && token && token.token) {
       setToken({})

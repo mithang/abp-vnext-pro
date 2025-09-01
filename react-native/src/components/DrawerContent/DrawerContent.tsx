@@ -30,16 +30,16 @@ interface DrawerContentProps {
 const screens: Record<string, Screen> = {
   HomeStack: { label: 'Menu:Home', iconName: 'dashboard' },
   UsersStack: {
-    label: 'AbpIdentity::Users',
+    label: 'AbpIdentity:Users',
     iconName: 'people',
     requiredPolicy: 'AbpIdentity.Users',
   },
   TenantsStack: {
-    label: 'AbpTenantManagement::Tenants',
+    label: 'AbpTenantManagement:Tenants',
     iconName: 'business',
     requiredPolicy: 'AbpTenantManagement.Tenants',
   },
-  SettingsStack: { label: 'AbpSettingManagement::Settings', iconName: 'settings' },
+  SettingsStack: { label: 'AbpSettingManagement:Settings', iconName: 'settings' },
 };
 
 const PressableWithPermission = withPermission(Pressable);

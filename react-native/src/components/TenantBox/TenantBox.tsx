@@ -35,11 +35,11 @@ function TenantBox({
       const { success, ...data } = response;
       if (!success) {
         Alert.alert(
-          i18n.t('AbpUi::Error'),
-          i18n.t('AbpUiMultiTenancy::GivenTenantIsNotAvailable', {
+          i18n.t('AbpUi:Error'),
+          i18n.t('AbpUiMultiTenancy:GivenTenantIsNotAvailable', {
             0: tenantName,
           }),
-          [{ text: i18n.t('AbpUi::Ok') }]
+          [{ text: i18n.t('AbpUi:Ok') }]
         );
         return;
       }
@@ -60,12 +60,12 @@ function TenantBox({
       >
         <View style={{ flex: 1 }}>
           <Text style={styles.title}>
-            {i18n.t('AbpUiMultiTenancy::Tenant')}
+            {i18n.t('AbpUiMultiTenancy:Tenant')}
           </Text>
           <Text style={styles.tenant}>
             {tenant.name
               ? tenant.name
-              : i18n.t('AbpUiMultiTenancy::NotSelected')}
+              : i18n.t('AbpUiMultiTenancy:NotSelected')}
           </Text>
         </View>
         <Button
@@ -74,7 +74,7 @@ function TenantBox({
           }}
           onPress={() => toggleTenantSelection()}
         >
-            {i18n.t('AbpUiMultiTenancy::Switch')}
+            {i18n.t('AbpUiMultiTenancy:Switch')}
         </Button>
       </Box>
       {showTenantSelection ? (
@@ -86,7 +86,7 @@ function TenantBox({
         >
           <FormControl my="2" width={350}>
             <FormControl.Label>
-              {i18n.t('AbpUiMultiTenancy::Name')}
+              {i18n.t('AbpUiMultiTenancy:Name')}
             </FormControl.Label>
             <Input
               autoCapitalize="none"
@@ -95,7 +95,7 @@ function TenantBox({
             />
           </FormControl>
           <Text style={styles.hint}>
-            {i18n.t('AbpUiMultiTenancy::SwitchTenantHint')}
+            {i18n.t('AbpUiMultiTenancy:SwitchTenantHint')}
           </Text>
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}
@@ -105,10 +105,10 @@ function TenantBox({
               onPress={() => toggleTenantSelection()}
               variant="outline"
             >
-              {i18n.t('AbpAccount::Cancel')}
+              {i18n.t('AbpAccount:Cancel')}
             </Button>
             <Button style={styles.button} onPress={() => findTenant()}>
-              {i18n.t('AbpAccount::Save')}
+              {i18n.t('AbpAccount:Save')}
             </Button>
           </View>
         </Box>

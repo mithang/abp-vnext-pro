@@ -54,7 +54,7 @@ export default function UsersStackNavigator() {
         name="Users"
         component={UsersScreen}
         options={({ navigation }) => ({
-          title: t('AbpIdentity::Users'),
+          title: t('AbpIdentity:Users'),
           headerLeft: () => <HamburgerIcon navigation={navigation} />,
           headerRight: () => <EnterpriseAddButton onPress={() => navigation.navigate('CreateUpdateUser')} />,
         })}
@@ -63,7 +63,7 @@ export default function UsersStackNavigator() {
         name="CreateUpdateUser"
         component={CreateUpdateUserScreen}
         options={({ route }) => ({
-          title: t(route.params?.userId ? 'AbpIdentity::Edit' : 'AbpIdentity::NewUser'),
+          title: t(route.params?.userId ? 'AbpIdentity:Edit' : 'AbpIdentity:NewUser'),
         })}
       />
     </Stack.Navigator>

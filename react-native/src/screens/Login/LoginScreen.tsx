@@ -120,7 +120,8 @@ function LoginScreen({ startLoading, stopLoading, setToken, fetchAppConfig }: Lo
               {!showTenantSelection && (
                 <VStack space={4}>
                   <EnterpriseInput
-                    label={i18n.t('AbpAccount:UserNameOrEmailAddress')}
+                    // label={i18n.t('AbpAccount:UserNameOrEmailAddress')}
+                    label='User name or Email'
                     value={formik.values.username}
                     onChangeText={formik.handleChange('username')}
                     isRequired
@@ -134,7 +135,8 @@ function LoginScreen({ startLoading, stopLoading, setToken, fetchAppConfig }: Lo
                   />
                   
                   <EnterpriseInput
-                    label={i18n.t('AbpAccount:Password')}
+                    // label={i18n.t('AbpAccount:Password')}
+                    label='Password'
                     value={formik.values.password}
                     onChangeText={formik.handleChange('password')}
                     type="password"
@@ -149,7 +151,8 @@ function LoginScreen({ startLoading, stopLoading, setToken, fetchAppConfig }: Lo
                   
                   <EnterpriseFormActions
                     onSubmit={() => formik.handleSubmit()}
-                    submitText={i18n.t('AbpAccount:Login')}
+                    // submitText={i18n.t('AbpAccount:Login')}
+                    submitText='Login'
                     isSubmitting={false}
                   />
                 </VStack>

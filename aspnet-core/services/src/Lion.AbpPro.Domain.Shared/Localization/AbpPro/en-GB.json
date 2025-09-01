@@ -3,6 +3,24 @@
   "texts": {
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "AbpIdentity:Users": "Users",
+    "AbpIdentity:Edit": "Edit",
+    "AbpIdentity:NewUser": "New User",
+    "AbpTenantManagement:Tenants": "Tenants",
+    "AbpSettingManagement:Settings": "Settings",
+    "AbpUiMultiTenancy:Tenant": "Tenant",
+    "AbpUiMultiTenancy:NotSelected": "Not Selected",
+    "AbpUiMultiTenancy:Switch": "Switch",
+    "AbpUiMultiTenancy:Name": "Name",
+    "AbpUiMultiTenancy:SwitchTenantHint": "Leave empty to switch to host.",
+    "AbpUiMultiTenancy:GivenTenantIsNotAvailable": "Tenant '{0}' is not available.",
+    "AbpUi:Language": "Language",
+    "AbpUi:Error": "Error",
+    "AbpUi:Ok": "OK",
+    "AbpUi:ChangePassword": "Change Password",
+    "AbpAccount:MyAccount": "My Account",
+    "AbpAccount:Cancel": "Cancel",
+    "AbpAccount:Save": "Save"
   }
 }

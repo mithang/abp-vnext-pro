@@ -15,7 +15,7 @@ export default function AuthNavigator() {
         name="Login"
         component={LoginScreen}
         options={() => ({
-          title: t('AbpAccount::Login'),
+          title: t('AbpAccount:Login'),
         })}
       />
     </Stack.Navigator>

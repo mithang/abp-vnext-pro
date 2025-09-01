@@ -55,7 +55,7 @@ export default function TenantsStackNavigator() {
         name="Tenants"
         component={TenantsScreen}
         options={({ navigation }) => ({
-          title: t('AbpTenantManagement::Tenants'),
+          title: t('AbpTenantManagement:Tenants'),
           headerLeft: () => <HamburgerIcon navigation={navigation} />,
           headerRight: () => <EnterpriseAddButton onPress={() => navigation.navigate('CreateUpdateTenant')} />,
         })}
@@ -64,7 +64,7 @@ export default function TenantsStackNavigator() {
         name="CreateUpdateTenant"
         component={CreateUpdateTenantScreen}
         options={({ route }) => ({
-          title: t(route.params?.tenantId ? 'AbpTenantManagement::Edit' : 'AbpTenantManagement::NewTenant'),
+          title: t(route.params?.tenantId ? 'AbpTenantManagement:Edit' : 'AbpTenantManagement:NewTenant'),
         })}
       />
     </Stack.Navigator>

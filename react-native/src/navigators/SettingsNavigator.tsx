@@ -33,21 +33,21 @@ export default function SettingsStackNavigator() {
         component={SettingsScreen}
         options={({ navigation }) => ({
           headerLeft: () => <HamburgerIcon navigation={navigation} />,
-          title: t('AbpSettingManagement::Settings'),
+          title: t('AbpSettingManagement:Settings'),
         })}
       />
       <Stack.Screen
         name="ChangePassword"
         component={ChangePasswordScreen}
         options={{
-          title: i18n.t('AbpUi::ChangePassword'),
+          title: i18n.t('AbpUi:ChangePassword'),
         }}
       />
       <Stack.Screen
         name="ManageProfile"
         component={ManageProfileScreen}
         options={{
-          title: i18n.t('AbpAccount::MyAccount'),
+          title: i18n.t('AbpAccount:MyAccount'),
         }}
       />
     </Stack.Navigator>

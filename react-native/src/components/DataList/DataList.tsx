@@ -83,7 +83,7 @@ function DataList<T = any>({
         mt="2"
       >
         <Input
-          placeholder={i18n.t('AbpUi::PagerSearch')}
+          placeholder={i18n.t('AbpUi:PagerSearch')}
           style={{ padding: 0, margin: 0 }}
           returnKeyType="done"
           value={filter}
@@ -114,7 +114,7 @@ function DataList<T = any>({
                     onPress={() => fetchPartial()}
                     style={{}}
                   >
-                    <Text>{i18n.t('AbpUi::LoadMore')}</Text>
+                    <Text>{i18n.t('AbpUi:LoadMore')}</Text>
                   </LoadingButton>
                 </View>
               ) : null}
