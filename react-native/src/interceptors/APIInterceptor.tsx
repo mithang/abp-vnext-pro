@@ -26,8 +26,14 @@ export function initAPIInterceptor(store: Store): void {
         persistentStorage: { token, language, tenant },
       } = store.getState() as any;
 
-      if (!request.headers.Authorization && token && token.access_token) {
-        request.headers.Authorization = `${token.token_type} ${token.access_token}`;
+
+      if (!request.headers.Authorization && token) {
+        // Handle different token formats
+        if (token.access_token) {
+          request.headers.Authorization = `Bearer ${token.access_token}`;
+        } else if (token.token) {
+          request.headers.Authorization = `Bearer ${token.token}`;
+        }
       }
 
       if (!request.headers['Content-Type']) {

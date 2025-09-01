@@ -38,8 +38,5 @@ export const getApplicationConfiguration = (): Promise<ApplicationConfiguration>
         ...(i18n.translations[cultureName] || {}),
       };
 
-      // Debug log to check loaded translations
-      console.log('Loaded translations for', cultureName, ':', Object.keys(flattenedTranslations));
-
       return config;
     });

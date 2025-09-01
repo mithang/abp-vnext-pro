@@ -23,10 +23,10 @@ export const removeUser = (id: string): Promise<void> =>
   api.delete(`/api/identity/users/${id}`);
 
 export const getProfileDetail = (): Promise<User> => 
-  api.get('/api/account/my-profile').then(({ data }) => data);
+  api.post('/users/myprofile').then(({ data }) => data);
 
 export const updateProfileDetail = (body: Partial<User>): Promise<User> =>
-  api.put('/api/account/my-profile', body).then(({ data }) => data);
+  api.put('/api/identity/users/my-profile', body).then(({ data }) => data);
 
 interface ChangePasswordRequest {
   currentPassword: string;
@@ -34,4 +34,4 @@ interface ChangePasswordRequest {
 }
 
 export const changePassword = (body: ChangePasswordRequest): Promise<void> =>
-  api.post('/api/account/my-profile/change-password', body).then(({ data }) => data);
+  api.post('/api/identity/users/my-profile/change-password', body).then(({ data }) => data);
