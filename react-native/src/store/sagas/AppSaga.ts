@@ -29,19 +29,9 @@ function* setLanguage(action: PayloadAction<string>) {
 }
 
 function* logout({ payload: { client_id, token, refresh_token } }: PayloadAction<LogoutPayload>) {
-  const data: any = { client_id, token };
-
-  yield call(Logout, data);
-
-  if (!!refresh_token) {
-    const refreshData: any = {
-      client_id,
-      token: refresh_token,
-      token_type_hint: 'refresh_token'
-    };
-    yield call(Logout, refreshData);
-  }
-
+  // Skip API calls for logout - just clear local storage
+  // Backend logout API may not be available or needed
+  
   yield put(PersistentStorageActions.clearAll());
   yield put(AppActions.fetchAppConfigAsync());
 }
