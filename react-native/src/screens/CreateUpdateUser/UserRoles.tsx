@@ -1,6 +1,7 @@
 import { Box, Checkbox, VStack, HStack, Text, Heading, Divider, Badge, Icon, Spinner } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
+import i18n from 'i18n-js';
 import { getAllRoles, getUserRoles } from '../../api/IdentityAPI';
 import { UserRole } from '../../types';
 import { enterpriseStyles } from '../../utils/EnterpriseStyles';
@@ -57,7 +58,7 @@ function UserRoles({ editingUser, onChangeRoles }: UserRolesProps) {
     return (
       <VStack space={4} alignItems="center" py={8}>
         <Spinner size="lg" color="primary.500" />
-        <Text color="gray.500">Loading roles...</Text>
+        <Text color="gray.500">{i18n.t('User:LoadingRoles')}</Text>
       </VStack>
     );
   }
@@ -66,10 +67,10 @@ function UserRoles({ editingUser, onChangeRoles }: UserRolesProps) {
     <VStack space={6}>
       <VStack space={1}>
         <Heading size="sm" color="gray.700">
-          User Roles & Permissions
+          {i18n.t('User:UserRolesAndPermissions')}
         </Heading>
         <Text fontSize="xs" color="gray.500">
-          Assign roles to control user access and permissions
+          {i18n.t('User:AssignRolesDescription')}
         </Text>
       </VStack>
       
@@ -80,7 +81,7 @@ function UserRoles({ editingUser, onChangeRoles }: UserRolesProps) {
           <VStack space={4} alignItems="center" py={8}>
             <Icon as={MaterialIcons} name="security" size="xl" color="gray.400" />
             <Text color="gray.500" textAlign="center">
-              No roles available
+              {i18n.t('User:NoRolesAvailable')}
             </Text>
           </VStack>
         ) : (
@@ -109,13 +110,13 @@ function UserRoles({ editingUser, onChangeRoles }: UserRolesProps) {
                     </Text>
                     {role.isDefault && (
                       <Badge colorScheme="blue" variant="subtle" size="sm">
-                        Default
+                        {i18n.t('User:Default')}
                       </Badge>
                     )}
                   </HStack>
                   {role.isPublic !== undefined && (
                     <Text fontSize="xs" color="gray.500">
-                      {role.isPublic ? 'Public role' : 'Private role'}
+                      {role.isPublic ? i18n.t('User:PublicRole') : i18n.t('User:PrivateRole')}
                     </Text>
                   )}
                 </VStack>
@@ -130,7 +131,7 @@ function UserRoles({ editingUser, onChangeRoles }: UserRolesProps) {
           <Divider />
           <VStack space={2}>
             <Text fontSize="sm" fontWeight="medium" color="gray.700">
-              Selected Roles ({roles.filter(role => role.isSelected).length})
+              {i18n.t('User:SelectedRoles')} ({roles.filter(role => role.isSelected).length})
             </Text>
             <HStack flexWrap="wrap" space={2}>
               {roles

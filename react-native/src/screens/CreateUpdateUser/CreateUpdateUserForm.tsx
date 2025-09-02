@@ -18,7 +18,7 @@ import {
   Switch,
   Badge
 } from 'native-base';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import { Platform, TextInput } from 'react-native';
 import * as Yup from 'yup';
 import { FormButtons } from '../../components/FormButtons';
@@ -73,27 +73,35 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
 
   const hasRemovePermission = usePermission('AbpIdentity.Users.Delete');
 
-  const onSubmit = (values: UserFormData) => {
-    submit({
-      ...editingUser,
-      ...values,
-      roleNames,
-    });
-  };
+  const onSubmit = useMemo(() => {
+    return (values: UserFormData) => {
+      submit({
+        ...editingUser,
+        ...values,
+        roleNames,
+      });
+    };
+  }, [editingUser, submit]);
 
-  const passwordValidation = Yup.lazy(() => {
-    if (editingUser?.id) {
-      return Yup.string();
-    }
-    return Yup.string().required('AbpAccount:ThisFieldIsRequired.');
-  });
+  const passwordValidation = useMemo(() => {
+    return Yup.lazy(() => {
+      if (editingUser?.id) {
+        return Yup.string();
+      }
+      return Yup.string().required('AbpAccount:ThisFieldIsRequired.');
+    });
+  }, [editingUser?.id]);
+
+  const validationSchema = useMemo(() => {
+    return Yup.object().shape({
+      ...validations,
+      password: passwordValidation,
+    });
+  }, [passwordValidation]);
 
   const formik = useFormik<UserFormData>({
     enableReinitialize: true,
-    validationSchema: Yup.object().shape({
-      ...validations,
-      password: passwordValidation,
-    }),
+    validationSchema,
     initialValues: {
       userName: editingUser?.userName || '',
       email: editingUser?.email || '',
@@ -113,10 +121,10 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
         <VStack space={4}>
           <HStack justifyContent="space-between" alignItems="center">
             <Heading size="md" color="gray.700">
-              User Configuration
+              {i18n.t('User:UserConfiguration')}
             </Heading>
             <Badge colorScheme={editingUser?.id ? 'warning' : 'success'} variant="subtle">
-              {editingUser?.id ? 'Edit Mode' : 'Create Mode'}
+              {editingUser?.id ? i18n.t('User:EditMode') : i18n.t('User:CreateMode')}
             </Badge>
           </HStack>
           
@@ -132,7 +140,7 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
               onPress={() => setSelectedTab(0)}
               leftIcon={<Icon as={MaterialIcons} name="person" size="sm" />}
             >
-              User Information
+              {i18n.t('User:BasicInfo')}
             </Button>
             <Button
               flex={1}
@@ -140,7 +148,7 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
               onPress={() => setSelectedTab(1)}
               leftIcon={<Icon as={MaterialIcons} name="security" size="sm" />}
             >
-              Roles & Permissions
+              {i18n.t('User:RolesAndPermissions')}
             </Button>
           </Button.Group>
         </VStack>
@@ -155,10 +163,10 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
             <VStack space={6}>
               <VStack space={1}>
                 <Heading size="sm" color="gray.700">
-                  Basic Information
+                  {i18n.t('User:BasicInformation')}
                 </Heading>
                 <Text fontSize="xs" color="gray.500">
-                  Enter the user's basic details and account information
+                  {i18n.t('User:BasicInfoDescription')}
                 </Text>
               </VStack>
               
@@ -166,8 +174,8 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
               
               <VStack space={4}>
                 <EnterpriseInput
-                    label="Username"
-                    placeholder="Enter username"
+                    label={i18n.t('User:Username')}
+                    placeholder={i18n.t('User:EnterUsername')}
                     value={formik.values.userName}
                     onChangeText={formik.handleChange('userName')}
                     errorMessage={formik.touched.userName && formik.errors.userName ? formik.errors.userName : undefined}
@@ -179,16 +187,16 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
                 <HStack space={4}>
                   <Box flex={1}>
                     <EnterpriseInput
-                        label="First Name"
-                        placeholder="Enter first name"
+                        label={i18n.t('User:FirstName')}
+                        placeholder={i18n.t('User:EnterFirstName')}
                         value={formik.values.name || ''}
                         onChangeText={formik.handleChange('name')}
                       />
                   </Box>
                   <Box flex={1}>
                     <EnterpriseInput
-                        label="Last Name"
-                        placeholder="Enter last name"
+                        label={i18n.t('User:LastName')}
+                        placeholder={i18n.t('User:EnterLastName')}
                         value={formik.values.surname || ''}
                         onChangeText={formik.handleChange('surname')}
                       />
@@ -196,8 +204,8 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
                 </HStack>
                 
                 <EnterpriseInput
-                    label="Email Address"
-                    placeholder="Enter email address"
+                    label={i18n.t('User:EmailAddress')}
+                    placeholder={i18n.t('User:EnterEmail')}
                     value={formik.values.email}
                     onChangeText={formik.handleChange('email')}
                     errorMessage={formik.touched.email && formik.errors.email ? formik.errors.email : undefined}
@@ -208,8 +216,8 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
                   />
                 
                 <EnterpriseInput
-                    label="Phone Number"
-                    placeholder="Enter phone number"
+                    label={i18n.t('User:PhoneNumber')}
+                    placeholder={i18n.t('User:EnterPhone')}
                     value={formik.values.phoneNumber || ''}
                     onChangeText={formik.handleChange('phoneNumber')}
                     keyboardType="phone-pad"
@@ -217,8 +225,8 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
                 
                 {!editingUser?.id && (
                   <EnterpriseInput
-                      label="Password"
-                      placeholder="Enter password"
+                      label={i18n.t('User:Password')}
+                      placeholder={i18n.t('User:EnterPassword')}
                       value={formik.values.password || ''}
                       onChangeText={formik.handleChange('password')}
                       errorMessage={formik.touched.password && formik.errors.password ? formik.errors.password : undefined}
@@ -235,20 +243,20 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
               <VStack space={4}>
                 <VStack space={1}>
                   <Heading size="sm" color="gray.700">
-                    Account Settings
+                    {i18n.t('User:AccountSettings')}
                   </Heading>
                   <Text fontSize="xs" color="gray.500">
-                    Configure account security and access settings
+                    {i18n.t('User:AccountSettingsDescription')}
                   </Text>
                 </VStack>
                 
                 <HStack justifyContent="space-between" alignItems="center" p={4} bg="gray.50" borderRadius="md">
                   <VStack space={1}>
                     <Text fontWeight="medium" color="gray.700">
-                      Account Lockout
+                      {i18n.t('User:AccountLockout')}
                     </Text>
                     <Text fontSize="xs" color="gray.500">
-                      Enable to allow account lockout after failed login attempts
+                      {i18n.t('User:AccountLockoutDescription')}
                     </Text>
                   </VStack>
                   <Switch
@@ -273,11 +281,11 @@ function CreateUpdateUserForm({ editingUser, submit, remove }: CreateUpdateUserF
        <EnterpriseFormActions
           onSubmit={formik.handleSubmit}
           onCancel={() => {}}
-          submitText={editingUser?.id ? 'Update User' : 'Create User'}
+          submitText={editingUser?.id ? i18n.t('User:UpdateUser') : i18n.t('User:CreateUser')}
           isSubmitting={formik.isSubmitting}
           showDelete={!!editingUser?.id && hasRemovePermission}
           onDelete={remove}
-          deleteText="Delete User"
+          deleteText={i18n.t('User:DeleteUser')}
         />
      </VStack>
   );

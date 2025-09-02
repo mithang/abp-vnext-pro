@@ -7,8 +7,8 @@ export const getAllRoles = (): Promise<UserRole[]> =>
 export const getUserRoles = (id: string): Promise<UserRole[]> =>
   api.get(`/api/identity/users/${id}/roles`).then(({ data }) => data.items);
 
-export const getUsers = (params: PaginationParams = { maxResultCount: 10, skipCount: 0 }): Promise<PaginatedResponse<User>> =>
-  api.get('/api/identity/users', { params }).then(({ data }) => data);
+export const getUsers = (params: PaginationParams = { pageSize: 10, pageIndex: 1 }): Promise<PaginatedResponse<User>> =>
+  api.post('/users/list',  params ).then(({ data }) => data);
 
 export const getUserById = (id: string): Promise<User> => 
   api.get(`/api/identity/users/${id}`).then(({ data }) => data);

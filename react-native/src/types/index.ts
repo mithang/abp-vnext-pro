@@ -19,8 +19,8 @@ export interface PaginatedResponse<T> {
 }
 
 export interface PaginationParams {
-  skipCount?: number;
-  maxResultCount?: number;
+  pageSize?: number;
+  pageIndex?: number;
   sorting?: string;
   filter?: string;
 }

@@ -1,7 +1,7 @@
 // const yourIP = '192.168.1.8'; // See the docs https://docs.abp.io/en/abp/latest/Getting-Started-React-Native?Tiered=No
 // const port = 44323;
 // const apiUrl = `http://${yourIP}:${port}`;
-const apiUrl = "https://571bd294cfa0.ngrok-free.app";
+const apiUrl = "https://000d0e2bc1ea.ngrok-free.app";
 
 interface OAuthConfig {
   issuer: string;
