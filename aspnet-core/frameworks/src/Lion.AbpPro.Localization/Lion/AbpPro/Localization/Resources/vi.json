@@ -1,0 +1,15 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Welcome": "Chào mừng",
+    "Permission:Cap": "Bảng điều khiển CAP",
+    "Lion.AbpPro:100001": "Trang bắt đầu phải lớn hơn hoặc bằng 1",
+    "Lion.AbpPro:100002": "Số bản ghi tối đa mỗi trang không thể vượt quá 100.000",
+    "Lion.AbpPro:100003": "{0} không thể để trống",
+    "Lion.AbpPro:PermissionDenied": "Không có quyền truy cập",
+    "Lion.AbpPro:ParameterValidationFailed": "Xác thực tham số yêu cầu thất bại",
+    "Lion.AbpPro:EntityNotFound": "Thực thể không tồn tại",
+    "Lion.AbpPro:Unimplemented ": "Chức năng chưa được triển khai",
+    "Lion.AbpPro:DbUpdateConcurrency ": "Dữ liệu đã được sửa đổi, vui lòng gửi lại"
+  }
+}
