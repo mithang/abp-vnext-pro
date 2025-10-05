@@ -1,4 +1,4 @@
-﻿using Consul;
+﻿﻿using Consul;
 using Lion.AbpPro.AspNetCore;
 using Lion.AbpPro.AspNetCore.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -85,7 +85,8 @@ public static class ServiceCollectionExtensions
             options.Languages.Add(new LanguageInfo("ru", "ru", "Русский"));
             options.Languages.Add(new LanguageInfo("tr", "tr", "Türkçe"));
             options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
-            options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文"));
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
+             options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文"));
         });
         return service;
     }

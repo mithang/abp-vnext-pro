@@ -7,6 +7,4 @@ export default {
     ...genMessage(modules, 'vi'),
     antdLocale,
   },
-  dateLocale: null,
-  dateLocaleName: 'vi',
 };
