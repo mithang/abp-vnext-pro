@@ -1,0 +1,20 @@
+1. Tao domain
+2. Tao shared
+3. Tao EF
+4. cd LMSoft.Marketing.EntityFrameworkCore
+5. dotnet ef migrations add AddBlog
+6. dotnet ef database update
+7. crud
+8. cd vben28
+9. npm run nswag
+10. code views, route trong vue
+11. permission backend & frontend(permission khai bao la tu add vao db)
+12. Add tenant: IMultiTenant, migration, gen nswage(bug frersh trang la no lay toan bo)
+13. Khi tao file se bi loi do "fileSystem.BasePath = "C:\\my-files";"
+14. Tao module: lion.abp new -t pro-module -c LMSoft -p  Marketing -m GameBoard
+15. Tao redis hangfire: docker run -d --name redis-hangfire -p 6378:6379 -e REDIS_PASSWORD='1q2w3E*' redis
+16. Enable MiniProfiler vao appsetting.json
+17. Enable hangfire vao MarketingHttpApiHostModule.cs, Bo comment cac dong co chua hangfire
+18. TestJob.cs ham se chay, CreateRecurringJob se duoc dang ky len lich chay
+19. No packages exist with this id in source(s): nuget.abp.io, nuget.org. PackageSourceMapping is enabled' 
+=> chi can comment NetGet.Config la chay dc
